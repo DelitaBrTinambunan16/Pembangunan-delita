@@ -9,22 +9,15 @@ class Warga extends Model
 {
     use HasFactory;
 
-    protected $table = 'warga'; // optional, kalau nama tabel sesuai pluralisasi Laravel, bisa dihapus
-
-    // Tentukan primary key khusus
-    protected $primaryKey = 'warga_id';
-
-    // Jika primary key auto-increment (default integer), ini bisa tetap true
-    public $incrementing = true;
-
-    // Kolom yang bisa diisi massal
+    protected $table = 'warga';
+    protected $primaryKey = 'warga_id'; // sesuai tabel
     protected $fillable = [
-        'nama',
-        'no_ktp',
+        'nik',
+        'nama_warga',
+        'alamat',
+        'no_hp',
         'jenis_kelamin',
-        'agama',
-        'pekerjaan',
-        'telepon',
-        'email',
+        'tanggal_lahir',
+        'pekerjaan'
     ];
 }

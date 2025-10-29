@@ -30,7 +30,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout.admin');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.admin');
 
 // Resource routes
-Route::resource('users', UserController::class);
+Route::resource('user', UserController::class);
 Route::resource('warga', WargaController::class);
 Route::resource('proyek', ProyekController::class);
 Route::get('/tahapan-proyek', [TahapanProyekController::class, 'index'])->name('tahapan.proyek');

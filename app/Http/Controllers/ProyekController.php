@@ -4,78 +4,71 @@ namespace App\Http\Controllers;
 
 use App\Models\Proyek;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class ProyekController extends Controller
 {
+    // Menampilkan semua data proyek
     public function index()
     {
-        $proyeks = Proyek::latest()->get();
+        $proyeks = Proyek::all();
         return view('proyek.index', compact('proyeks'));
     }
 
+    // Menampilkan form tambah data proyek
     public function create()
     {
         return view('proyek.create');
     }
 
+    // Menyimpan data proyek baru
     public function store(Request $request)
     {
         $request->validate([
-            'nama_proyek' => 'required',
-            'tanggal_mulai' => 'required|date',
-            'status' => 'required',
-            'dokumen' => 'nullable|mimes:pdf,docx|max:2048',
+            'kode_proyek' => 'required|unique:proyek,kode_proyek',
+            'nama_proyek' => 'required|string|max:255',
+            'tahun' => 'required|integer',
+            'lokasi' => 'required|string|max:255',
+            'anggaran' => 'required|numeric',
+            'sumber_dana' => 'required|string|max:255',
+            'deskripsi' => 'nullable|string',
         ]);
 
-        $data = $request->all();
-
-        if ($request->hasFile('dokumen')) {
-            $data['dokumen'] = $request->file('dokumen')->store('dokumen_proyek', 'public');
-        }
-
-        Proyek::create($data);
+        Proyek::create($request->all());
 
         return redirect()->route('proyek.index')->with('success', 'Data proyek berhasil ditambahkan.');
     }
 
+    // Menampilkan form edit data proyek
     public function edit($id)
     {
         $proyek = Proyek::findOrFail($id);
         return view('proyek.edit', compact('proyek'));
     }
 
+    // Mengupdate data proyek
     public function update(Request $request, $id)
     {
         $proyek = Proyek::findOrFail($id);
 
         $request->validate([
-            'nama_proyek' => 'required',
-            'tanggal_mulai' => 'required|date',
-            'status' => 'required',
-            'dokumen' => 'nullable|mimes:pdf,docx|max:2048',
+            'kode_proyek' => 'required|unique:proyek,kode_proyek,' . $proyek->proyek_id . ',proyek_id',
+            'nama_proyek' => 'required|string|max:255',
+            'tahun' => 'required|integer',
+            'lokasi' => 'required|string|max:255',
+            'anggaran' => 'required|numeric',
+            'sumber_dana' => 'required|string|max:255',
+            'deskripsi' => 'nullable|string',
         ]);
 
-        $data = $request->all();
+        $proyek->update($request->all());
 
-        if ($request->hasFile('dokumen')) {
-            if ($proyek->dokumen && Storage::disk('public')->exists($proyek->dokumen)) {
-                Storage::disk('public')->delete($proyek->dokumen);
-            }
-            $data['dokumen'] = $request->file('dokumen')->store('dokumen_proyek', 'public');
-        }
-
-        $proyek->update($data);
-
-        return redirect()->route('proyek.index')->with('success', 'Data proyek berhasil diperbarui.');
+        return redirect()->route('proyek.index')->with('success', 'Data proyek berhasil diupdate.');
     }
 
+    // Menghapus data proyek
     public function destroy($id)
     {
         $proyek = Proyek::findOrFail($id);
-        if ($proyek->dokumen && Storage::disk('public')->exists($proyek->dokumen)) {
-            Storage::disk('public')->delete($proyek->dokumen);
-        }
         $proyek->delete();
 
         return redirect()->route('proyek.index')->with('success', 'Data proyek berhasil dihapus.');
