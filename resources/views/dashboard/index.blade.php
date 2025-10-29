@@ -521,5 +521,12 @@
             </div>
         </div>
     </div>
+        </div>
 </div>
+</a>
+</div>
+<!-- Tombol WhatsApp -->
+<a href="https://wa.me/082387398764" target="_blank"
+   class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center space-x-2">
+   <!-- ikon dan teks -->
 @endsection
