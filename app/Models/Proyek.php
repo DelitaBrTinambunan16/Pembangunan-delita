@@ -10,7 +10,7 @@ class Proyek extends Model
     use HasFactory;
 
     // Jika nama tabel bukan plural "proyeks", bisa ditentukan explicit
-    protected $table = 'proyek';
+    protected $table = 'proyeks';
 
     // Kolom yang bisa diisi massal
     protected $fillable = [

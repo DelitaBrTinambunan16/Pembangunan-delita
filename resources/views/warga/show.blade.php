@@ -8,7 +8,6 @@
     <li><strong>ID:</strong> {{ $warga->warga_id }}</li>
     <li><strong>NIK:</strong> {{ $warga->nik }}</li>
     <li><strong>Nama:</strong> {{ $warga->nama_warga }}</li>
-    <li><strong>Alamat:</strong> {{ $warga->alamat }}</li>
     <li><strong>No HP:</strong> {{ $warga->no_hp }}</li>
     <li><strong>Jenis Kelamin:</strong> {{ $warga->jenis_kelamin }}</li>
     <li><strong>Tanggal Lahir:</strong> {{ $warga->tanggal_lahir }}</li>

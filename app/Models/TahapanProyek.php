@@ -9,7 +9,7 @@ class TahapanProyek extends Model
 {
     use HasFactory;
 
-    protected $table = 'tahapan_proyek';
+    protected $table = 'tahapan_proyeks';
 
     protected $primaryKey = 'tahap_id';
 

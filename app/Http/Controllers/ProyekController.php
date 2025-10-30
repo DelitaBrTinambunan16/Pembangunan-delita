@@ -10,8 +10,8 @@ class ProyekController extends Controller
     // Menampilkan semua data proyek
     public function index()
     {
-        $proyeks = Proyek::all();
-        return view('proyek.index', compact('proyeks'));
+        $proyek = Proyek::all();
+        return view('proyek.index', compact('proyek'));
     }
 
     // Menampilkan form tambah data proyek
@@ -24,7 +24,7 @@ class ProyekController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_proyek' => 'required|unique:proyek,kode_proyek',
+            'kode_proyek' => 'required|unique:proyeks,kode_proyek',
             'nama_proyek' => 'required|string|max:255',
             'tahun' => 'required|integer',
             'lokasi' => 'required|string|max:255',
@@ -51,7 +51,7 @@ class ProyekController extends Controller
         $proyek = Proyek::findOrFail($id);
 
         $request->validate([
-            'kode_proyek' => 'required|unique:proyek,kode_proyek,' . $proyek->proyek_id . ',proyek_id',
+            'kode_proyek' => 'required|unique:proyeks,kode_proyek,' . $proyek->proyek_id . ',proyek_id',
             'nama_proyek' => 'required|string|max:255',
             'tahun' => 'required|integer',
             'lokasi' => 'required|string|max:255',

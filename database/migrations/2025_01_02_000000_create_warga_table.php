@@ -11,7 +11,6 @@ return new class extends Migration {
             $table->id('warga_id'); // PK
             $table->string('nik', 20)->unique();
             $table->string('nama_warga', 100);
-            $table->string('alamat', 255);
             $table->string('no_hp', 20)->nullable();
             $table->string('jenis_kelamin', 10); // Laki-laki / Perempuan
             $table->date('tanggal_lahir')->nullable();

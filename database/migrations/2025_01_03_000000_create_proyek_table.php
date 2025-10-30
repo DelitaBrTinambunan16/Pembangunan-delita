@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('proyeks', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_proyek')->unique();
             $table->string('nama_proyek');
             $table->text('deskripsi')->nullable();
             $table->date('tanggal_mulai');

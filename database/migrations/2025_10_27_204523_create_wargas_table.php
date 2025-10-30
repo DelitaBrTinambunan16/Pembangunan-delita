@@ -12,7 +12,6 @@ return new class extends Migration
             $table->id();
             $table->string('nik')->unique();
             $table->string('nama');
-            $table->string('alamat');
             $table->string('no_hp')->nullable();
             $table->string('jenis_kelamin');
             $table->string('pekerjaan')->nullable();

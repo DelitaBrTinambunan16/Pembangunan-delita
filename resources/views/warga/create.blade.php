@@ -11,11 +11,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
                 <label class="block mb-1 font-medium">Nama</label>
-                <input type="text" name="nama" class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200" required>
+                <input type="text" name="nama_warga" class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200" required>
             </div>
             <div>
                 <label class="block mb-1 font-medium">No KTP</label>
-                <input type="text" name="no_ktp" class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200" required>
+                <input type="text" name="nik" class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200" required>
             </div>
             <div>
                 <label class="block mb-1 font-medium">Jenis Kelamin</label>
@@ -35,14 +35,14 @@
             </div>
             <div>
                 <label class="block mb-1 font-medium">Telepon</label>
-                <input type="text" name="telepon" class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200" required>
+                <input type="text" name="no_hp" class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200" required>
             </div>
             <div>
-                <label class="block mb-1 font-medium">Email</label>
-                <input type="email" name="email" class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200" required>
+                <label class="block mb-1 font-medium">Tanggal Lahir</label>
+                <input type="date" name="tanggal_lahir" class="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-200" required>
             </div>
-        </div>
 
+        </div>
         <div class="mt-4 flex gap-2">
             <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow">Simpan</button>
             <a href="{{ route('warga.index') }}" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded shadow">Kembali</a>

@@ -26,7 +26,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($proyeks as $index => $proyek)
+            @foreach($proyek as $index => $proyek)
             <tr class="border-b border-gray-200 dark:border-gray-700">
                 <td class="px-4 py-2">{{ $index + 1 }}</td>
                 <td class="px-4 py-2">{{ $proyek->nama_proyek }}</td>

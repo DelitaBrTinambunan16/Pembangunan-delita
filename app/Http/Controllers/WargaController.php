@@ -23,14 +23,15 @@ class WargaController extends Controller
     // Menyimpan data warga baru
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'no_ktp' => 'required|unique:warga,no_ktp',
+            'nama_warga' => 'required|string|max:255',
+            'nik' => 'required|unique:warga,nik',
             'jenis_kelamin' => 'required',
             'agama' => 'required',
             'pekerjaan' => 'required',
-            'telepon' => 'required',
-            'email' => 'required|email',
+            'no_hp' => 'required',
+            'tanggal_lahir' => 'required',
         ]);
 
         Warga::create($request->all());
