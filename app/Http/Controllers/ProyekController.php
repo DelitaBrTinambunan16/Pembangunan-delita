@@ -38,6 +38,13 @@ class ProyekController extends Controller
         return redirect()->route('proyek.index')->with('success', 'Data proyek berhasil ditambahkan.');
     }
 
+    // 🔹 Menampilkan detail proyek (fitur lihat detail)
+    public function show($id)
+    {
+        $proyek = Proyek::findOrFail($id);
+        return view('proyek.show', compact('proyek'));
+    }
+
     // Menampilkan form edit data proyek
     public function edit($id)
     {

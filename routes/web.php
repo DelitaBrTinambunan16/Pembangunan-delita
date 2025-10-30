@@ -45,3 +45,8 @@ Route::get('/buat-admin', function () {
     $user->save();
     return 'Akun admin berhasil dibuat!';
 });
+use App\Http\Controllers\WhatsappController;
+
+Route::get('/wa/compose', [WhatsappController::class, 'compose'])->name('wa.compose');
+Route::post('/wa/send', [WhatsappController::class, 'send'])->name('wa.send');
+

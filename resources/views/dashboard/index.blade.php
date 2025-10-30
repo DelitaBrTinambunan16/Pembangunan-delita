@@ -6,14 +6,8 @@
 {{-- Body --}}
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>Dashboard</h1>
     </section>
 
-    <section class="content">
-        <div class="alert alert-success">
-            Selamat datang di Dashboard Admin.
-        </div>
-    </section>
 </div>
 <div class="container px-6 mx-auto grid">
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">

@@ -13,15 +13,15 @@ class RehashExistingPasswords extends Migration
         // Ambil semua user
         $users = User::all();
 
-        foreach ($users as $user) {
+        foreach ($Users as $User) {
             // Jika password sudah Bcrypt, lewati
-            if (!Hash::needsRehash($user->password)) {
+            if (!Hash::needsRehash($User->password)) {
                 continue;
             }
 
             // Rehash password (jika teks biasa atau hash lama)
-            $user->password = Hash::make($user->password);
-            $user->save();
+            $User->password = Hash::make($User->password);
+            $User->save();
         }
     }
 
